@@ -7,7 +7,7 @@
 # The second line will be assigned to group2 as normal/control group. 
 
 # Author: PJ Wu
-# Last updata: 2020-01-03
+# Last updata: 2020-01-08
 
 WHOLE_GENE_MODEL="hg38_refseq_whole_gene.bed"
 TRANSCRIPTS_TO_SYMBOL="hg38_refseq_id_UCSC.txt"
@@ -30,10 +30,13 @@ rule all:
 
 rule bamTobedgraph:
     input:
-        "rnaseq/mapped_reads/{sample}_sorted.bam"
+        "datasets/{sample}.bam"
 
     output:
-       "bed/{sample}.bedgraph"
+        "bed/{sample}.bedgraph"
+
+    conda:
+        "envs/3utr.yml"
 
     shell:
         "genomeCoverageBed -bg -ibam {input} -split > {output}"
@@ -46,6 +49,9 @@ rule generate_region_annotation:
 
     output:
         "Extracted_3UTR.bed"
+    
+    conda:
+        "envs/3utr.yml"
 
     message:
         "Start extracting region annotation..."
@@ -97,6 +103,10 @@ rule dapars_main:
         "config_file"
     output:
         "DaPars_result/3UTR_All_Prediction_Results.txt"
+
+    conda:
+        "envs/3utr.yml"
+
     shell:
         "python src/DaPars_main.py {input}"
 
