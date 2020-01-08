@@ -9,8 +9,8 @@
 # Author: PJ Wu
 # Last updata: 2020-01-08
 
-WHOLE_GENE_MODEL="hg38_refseq_whole_gene.bed"
-TRANSCRIPTS_TO_SYMBOL="hg38_refseq_id_UCSC.txt"
+WHOLE_GENE_MODEL="annotation/hg38_refseq_whole_gene.bed"
+TRANSCRIPTS_TO_SYMBOL="annotation/hg38_refseq_id_UCSC.txt"
 
 with open("sample_list.txt", "r") as f:
     SAMPLE_LS=f.readlines();

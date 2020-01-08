@@ -1,4 +1,4 @@
-# A worlflow for Alternative polyadenylation (APA) events in 3'UTR analysis 
+# A worlflow for Alternative polyadenylation (APA) events analysis in 3'UTR
 
 Last update: 2020-01-08
 
@@ -20,7 +20,8 @@ This is a workflow for analyzing APA events in 3'UTR with [Dapars](http://lilab.
 
 ## Input
 * A sample_list.txt
-> Fisrt row: comma-separated sample list of group1(Tumor/Treatment); Second row: comma-separated samlple list of group2(Normal/Control).
+> Fisrt row: comma-separated sample list of group1(Tumor/Treatment);
+> Second row: comma-separated samlple list of group2(Normal/Control).
 * A `datasets` directory condtains aligned samples in BAM format.
 * A whole gene model in BED format. The gene model can be download form [UCSC](http://genome.ucsc.edu/cgi-bin/hgTables?command=start). See *hg38_refseq_whole_gene.bed*.
 * A mapping of transcript ID(RefSeq) to gene symbol. This can be extracted from UCSC tables. See *hg38_refseq_id_UCSC.txt*.
